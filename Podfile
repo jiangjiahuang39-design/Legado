@@ -1,3 +1,4 @@
+
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 platform :ios, '17.0'
 
@@ -13,7 +14,7 @@ target 'Legado' do
   pod 'SwCrypt', '~> 5.1.3'
 end
 
-target 'LegadoTests' do
+target 'swiftLegadoTests' do
   pod 'Alamofire'
   pod 'SwiftSoup', '2.11.3'
   pod 'GCDWebServer', '3.5.4'
