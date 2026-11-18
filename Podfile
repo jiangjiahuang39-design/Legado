@@ -11,7 +11,7 @@ target 'Legado' do
   pod 'SwiftSoup', '2.11.3'
   pod 'GCDWebServer', '3.5.4'
   pod 'Kanna', '~> 5.3'
-  pod 'SwCrypt', '~> 5.1.3'
+  pod 'SwCrypt', :git => 'https://github.com/jiangjiahuang39-design/SwCrypt.git', :branch => 'master'
 end
 
 target 'swiftLegadoTests' do
@@ -19,7 +19,7 @@ target 'swiftLegadoTests' do
   pod 'SwiftSoup', '2.11.3'
   pod 'GCDWebServer', '3.5.4'
   pod 'Kanna', '~> 5.3'
-  pod 'SwCrypt', '~> 5.1.3'
+  pod 'SwCrypt', :git => 'https://github.com/jiangjiahuang39-design/SwCrypt.git', :branch => 'master'
 end
 
 post_install do |installer|
