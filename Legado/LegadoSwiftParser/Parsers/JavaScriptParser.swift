@@ -6417,9 +6417,9 @@ private nonisolated final class AsymmetricCryptoBridge {
         let blockSize: Int
         if let secKey {
             let size = SecKeyGetBlockSize(secKey)
-            blockSize = size > 0 ? size : (try CC.RSA.rawCrypt(data.prefix(256), derKey: derKey).1)
+            blockSize = size > 0 ? size : (try CC.RSA.keySize(derKey: derKey))
         } else {
-            blockSize = try CC.RSA.rawCrypt(data.prefix(256), derKey: derKey).1
+            blockSize = try CC.RSA.keySize(derKey: derKey)
         }
         guard blockSize > 0, data.count >= blockSize, data.count.isMultiple(of: blockSize) else {
             throw ParserError.javascriptError("Invalid RSA raw public-key input size")
