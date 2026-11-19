@@ -2,6 +2,13 @@ name: iOS Unsigned IPA Build
 
 on:
   workflow_dispatch:
+    paths:
+      - "Legado/**"
+      - "Legado.xcodeproj/**"
+      - "Legado.xcworkspace/**"
+      - "Podfile"
+      - "Podfile.lock"
+      - ".github/workflows/ios-ipa.yml"
 
 jobs:
   build:
@@ -22,9 +29,8 @@ jobs:
           pod --version
 
       - name: Install dependencies
-        timeout-minutes: 15
         run: |
-          pod install
+          pod install --repo-update
 
       - name: Archive iOS app
         run: |
@@ -44,7 +50,7 @@ jobs:
           /usr/bin/zip -r Legado-Unsigned.ipa Payload
 
       - name: Upload IPA
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: Legado-Unsigned-IPA
           path: Legado-Unsigned.ipa
